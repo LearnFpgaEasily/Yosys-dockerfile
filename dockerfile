@@ -13,6 +13,3 @@ RUN apt-get install -y build-essential git clang bison flex \
 RUN git clone https://github.com/YosysHQ/yosys.git yosys
 
 RUN cd yosys; make -j$(nproc); make install
-
-WORKDIR "/project/"
-ENTRYPOINT [ "/bin/bash", "-c", "yosys src/synth/synth.ys > build/logs/syn_log.txt" ]
